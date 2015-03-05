@@ -1,0 +1,14 @@
+{
+  "views": {
+    "description" : "...",
+    "message": "vues"
+  },
+  "subscribers": {
+    "description" : "...",
+    "message": "abonnements"
+  },
+  "addAChannel": {
+    "description": "...",
+    "message": "Ajouter une chaine"
+  }
+}

@@ -1,6 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../../bower_components/i18n-msg/i18n-msg.html">
 
 <polymer-element name="app-launcher" attributes="">
   <template>
@@ -9,6 +10,12 @@
     <core-header-panel>
       <core-toolbar slide-down>
         <paper-icon-button icon="menu"></paper-icon-button>
+
+          <select id="lang">
+              <option>en</option>
+              <option selected>fr</option>
+          </select>
+
       </core-toolbar>
     </core-header-panel>
 
@@ -23,12 +30,23 @@
   </template>
   <script>
     (function () {
-      Polymer({
+
+
+
+        Polymer({
         ready: function () {
           this.items = [
             'channel-inspector',
-            'video-manager',
+            'video-manager'
           ];
+
+            var selector = this.$.lang;
+            I18nMsg.lang = selector.value || document.documentElement.lang || 'fr';
+            selector.addEventListener('change', function() {
+                document.documentElement.lang = this.value;
+                I18nMsg.lang = this.value;
+            });
+
         }
       });
     })();
